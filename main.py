@@ -17,16 +17,13 @@ class Suprematism(QWidget):
         self.paint_circle = True
         self.update()
 
-    def draw_circle(self, painter):
-        num = random.randint(20, 100)
-        painter.setBrush(QColor(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)))
-        painter.drawEllipse(208 - num, 195 - num, num * 2, num * 2)
-
-    def paintEvent(self):
+    def paintEvent(self, event):
         if self.paint_circle:
             painter = QPainter()
             painter.begin(self)
-            self.paintCircle(painter)
+            num = random.randint(20, 100)
+            painter.setBrush(QColor(255, 255, 0))
+            painter.drawEllipse(208 - num, 155 - num, num * 2, num * 2)
             painter.end()
         self.paint_circle = False
 
